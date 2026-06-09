@@ -1,8 +1,6 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List
-from langgraph.graph.message import add_messages
-from src.agent.state import AgentState
 from src.agent.graph import app as graph_app
 
 class Message(BaseModel):
