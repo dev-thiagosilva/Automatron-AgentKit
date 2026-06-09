@@ -10,7 +10,7 @@ app = FastAPI()
 
 @app.post("/chat")
 async def chat(messages: List[Message]):
-    from langchain_core.messages import HumanMessage, AIMessage
+    from langchain_core.messages import HumanMessage
     state_messages = [HumanMessage(content=m.content) for m in messages]
     initial_state = {"messages": state_messages}
     output_state = graph_app.invoke(initial_state)
