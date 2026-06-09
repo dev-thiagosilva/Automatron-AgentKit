@@ -26,5 +26,8 @@ run-tests:
 lint:
 	flake8 src tests
 
+check:
+	ruff check src tests
+
 format:
 	black src tests
