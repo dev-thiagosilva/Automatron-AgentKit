@@ -25,7 +25,7 @@ jobs:
         
     - name: Run tests
       run: |
-        pytest --doctest-modules --junitxml=junit/test-results.xml
+        pytest tests/ --doctest-modules --junitxml=junit/test-results.xml
         
     - name: Check test pass rate
       run: |
