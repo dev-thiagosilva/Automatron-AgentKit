@@ -22,5 +22,15 @@ List any tests added or updated as part of this PR. Include test file names and 
 - [x] Criterion title – Description (or N/A if not applicable)
 - [ ] Another criterion – Description
 
+## Statistics
+Run the following command to populate this section:
+```bash
+python scripts/calculate_elapsed.py
+```
+Output example:
+- **Branch:** feature/my-feature
+- **Total commits:** 5
+- **Elapsed time:** 3.50 hours
+
 ## Screenshots
 Attach screenshots if the changes affect UI or visual output. If none, leave this section empty.
