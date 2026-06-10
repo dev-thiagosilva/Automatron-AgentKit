@@ -53,12 +53,6 @@ Run `pytest tests/test_graph.py` and ensure the Researcher node returns real res
 - Unit tests added/updated and passing.
 - ADR created if architectural change is significant.
 
-#### Definition of Done (DoD)
-- Code follows Black formatting.
-- Code passes Ruff linting.
-- Unit tests added/updated and passing.
-- ADR created if architectural change is significant.
-
 #### Reference
 [Epic 1](docs/milestone/milestone_1_plan.md#epic-1-add-a-simple-ai-chatbot)
 
@@ -101,12 +95,6 @@ Run `pytest tests/test_graph.py` ensuring Writer node can use Ollama.
 - AC-1: Writer node uses Ollama when configured.
 - AC-2: Provider selection via env var `LLM_PROVIDER`.
 - AC-3: Tests pass with mocked Ollama responses.
-
-#### Definition of Done (DoD)
-- Code follows Black formatting.
-- Code passes Ruff linting.
-- Unit tests added/updated and passing.
-- ADR created if architectural change is significant.
 
 #### Definition of Done (DoD)
 - Code follows Black formatting.
@@ -161,10 +149,6 @@ Run unit tests ensuring state includes provider info.
 - Code passes Ruff linting.
 - Unit tests added/updated and passing.
 
-#### Definition of Done (DoD)
-- Code follows Black formatting.
-- Code passes Ruff linting.
-- Unit tests added/updated and passing.
 
 ## CHAT-4: End-to-End Integration Test (OpenAI & Ollama)
 
@@ -203,6 +187,7 @@ Run `pytest tests/test_graph.py` and confirm all assertions pass.
 - AC-1: Tests cover both providers.
 #### Definition of Done (DoD)
 - Code follows Black formatting.
+- Code passes Ruff linting.
 ## CHAT-5: Documentation and ADR for AI Chatbot Implementation
 
 [Type: Story] - Documentation and ADR for AI Chatbot Implementation
@@ -248,7 +233,6 @@ Ensure ADR file exists and is referenced in documentation.
 - AC-1: ADR file created under `docs/adr`.
 - AC-2: README updated to reference ADR.
 - AC-3: PR passes all checks.
-
 #### Definition of Done (DoD)
 - Code follows Black formatting.
 - Code passes Ruff linting.
