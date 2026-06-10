@@ -25,6 +25,7 @@ jobs:
         
     - name: Run tests
       run: |
+        export PYTHONPATH="${PYTHONPATH}:$(pwd)"
         pytest tests/ --doctest-modules --junitxml=junit/test-results.xml
         
     - name: Check test pass rate
