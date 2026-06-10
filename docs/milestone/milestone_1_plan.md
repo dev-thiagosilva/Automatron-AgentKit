@@ -12,6 +12,9 @@ This document outlines the breakdown of Epics into actionable Jira tickets for M
 ### Summary
 Add support for OpenAI LLM in the Researcher node using `langchain_openai`, configuring API keys via environment variables.
 
+#### As-a / I-want / So-what
+**As a** developer, **I want** to replace mock responses with real OpenAI calls, **So that** we can test end‑to‑end flow with actual LLM output.
+
 #### Parent Epic
 Epic 1: Add a Simple AI Chatbot
 
@@ -50,6 +53,12 @@ Run `pytest tests/test_graph.py` and ensure the Researcher node returns real res
 - Unit tests added/updated and passing.
 - ADR created if architectural change is significant.
 
+#### Definition of Done (DoD)
+- Code follows Black formatting.
+- Code passes Ruff linting.
+- Unit tests added/updated and passing.
+- ADR created if architectural change is significant.
+
 #### Reference
 [Epic 1](docs/milestone/milestone_1_plan.md#epic-1-add-a-simple-ai-chatbot)
 
@@ -59,6 +68,9 @@ Run `pytest tests/test_graph.py` and ensure the Researcher node returns real res
 
 ### Summary
 Add support for local LLM via Ollama in the Writer node, enabling provider switching.
+
+#### As-a / I-want / So-what
+**As a** developer, **I want** to use a local LLM for faster iteration, **So that** we can test without external API calls.
 
 #### Parent Epic
 Epic 1: Add a Simple AI Chatbot
@@ -96,6 +108,12 @@ Run `pytest tests/test_graph.py` ensuring Writer node can use Ollama.
 - Unit tests added/updated and passing.
 - ADR created if architectural change is significant.
 
+#### Definition of Done (DoD)
+- Code follows Black formatting.
+- Code passes Ruff linting.
+- Unit tests added/updated and passing.
+- ADR created if architectural change is significant.
+
 #### Reference
 [Epic 1](docs/milestone/milestone_1_plan.md#epic-1-add-a-simple-ai-chatbot)
 
@@ -105,6 +123,9 @@ Run `pytest tests/test_graph.py` ensuring Writer node can use Ollama.
 
 ### Summary
 Modify `AgentState` to track which LLM provider was used during a run.
+
+#### As-a / I-want / So-what
+**As a** developer, **I want** state to record the provider name, **So that** we can audit and debug runs.
 
 #### Parent Epic
 Epic 1: Add a Simple AI Chatbot
@@ -140,12 +161,20 @@ Run unit tests ensuring state includes provider info.
 - Code passes Ruff linting.
 - Unit tests added/updated and passing.
 
+#### Definition of Done (DoD)
+- Code follows Black formatting.
+- Code passes Ruff linting.
+- Unit tests added/updated and passing.
+
 ## CHAT-4: End-to-End Integration Test (OpenAI & Ollama)
 
 [Type: Story] - End-to-End Integration Test (OpenAI & Ollama)
 
 ### Summary
 Create or update integration tests to verify real LLM responses and node transitions for both OpenAI and Ollama.
+
+#### As-a / I-want / So-what
+**As a** QA engineer, **I want** automated end‑to‑end tests, **So that** we can ensure reliability across providers.
 
 #### Parent Epic
 Epic 1: Add a Simple AI Chatbot
@@ -180,6 +209,9 @@ Run `pytest tests/test_graph.py` and confirm all assertions pass.
 
 ### Summary
 Create an Architecture Decision Record documenting the model selection strategy and integration approach, and update documentation accordingly.
+
+#### As-a / I-want / So-what
+**As a** architect, **I want** to record decisions, **So that** future maintainers understand the rationale.
 
 #### As-a / I-want / So-what
 **As a** architect, **I want** to record decisions, **So that** future maintainers understand the rationale.
