@@ -1,0 +1,6 @@
+tests/__pycache__/*
+docs/AI_Context/tmp_pr.md
+*/__pycache__/*
+*\__pycache__\*
+*.cpython*.pyc
+junit/*.xml
