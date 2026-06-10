@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List
-from src.agent.graph import app as graph_app
+from automatron.agent.graph import app as graph_app
 
 class Message(BaseModel):
     content: str

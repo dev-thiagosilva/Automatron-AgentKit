@@ -1,4 +1,9 @@
-# Repository Context: Low-Latency LangGraph Agent API
+# Repository Context: Low‑Latency LangGraph Agent API
+
+## Project Identity
+**Name:** *Automatron AgentKit*
+**Repository URL:** https://github.com/your-org/low-latency-multi-agent-chatbot  
+**Description:** A production‑grade template for building low‑latency multi‑agent chatbots using LangGraph, FastAPI, and Docker.
 
 <background_information>
 This repository is a production-grade template for building low-latency multi-agent chatbots.

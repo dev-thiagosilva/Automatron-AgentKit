@@ -4,7 +4,7 @@ from pathlib import Path
 # Ensure the project root is on PYTHONPATH so imports resolve correctly
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.agent_api.api import app as api_app
+from automatron.agent_api.api import app as api_app
 from fastapi.testclient import TestClient
 
 client = TestClient(api_app)
