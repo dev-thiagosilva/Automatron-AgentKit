@@ -175,11 +175,14 @@ Run `pytest tests/test_graph.py` and confirm all assertions pass.
 #### Definition of Done (DoD)
 - Code follows Black formatting.
 ## CHAT-5: Documentation and ADR for AI Chatbot Implementation
-## CHAT-4: End-to-End Integration Test (OpenAI & Ollama)
+
 [Type: Story] - Documentation and ADR for AI Chatbot Implementation
 
 ### Summary
 Create an Architecture Decision Record documenting the model selection strategy and integration approach, and update documentation accordingly.
+
+#### As-a / I-want / So-what
+**As a** architect, **I want** to record decisions, **So that** future maintainers understand the rationale.
 
 #### Parent Epic
 Epic 1: Add a Simple AI Chatbot
@@ -189,13 +192,13 @@ Epic 1: Add a Simple AI Chatbot
 
 #### Description
 Write `docs/adr/ai_chatbot_integration.md` explaining:
-- Choice of langchain providers.
-- Environment variable configuration.
-- Provider switching logic.
+- Choice of langchain providers.  
+- Environment variable configuration.  
+- Provider switching logic.  
 - Testing strategy.
 
 #### Problem and Solution
-Problem: Lack of documented design decisions. 
+Problem: Lack of documented design decisions.  
 Solution: Produce ADR and update README.
 
 #### Impact Analysis
