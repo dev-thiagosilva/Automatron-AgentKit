@@ -3,17 +3,17 @@
 This document outlines the breakdown of Epics into actionable Jira tickets for Milestone 1. Each ticket is designed to be implemented in a single branch and finalized with a single Pull Request (PR), followed by an Architecture Decision Record (ADR).
 
 ## Epic 1: Add a Simple AI Chatbot
-**Goal:** Transition from mock nodes to real LLM integration (OpenAI & Ollama) and ensure end-to-end flow.
+**Goal:** Transition from mock nodes to real LLM integration (Ollama) and ensure end-to-end flow.
 
-## CHAT-1: Implement OpenAI Integration in Researcher Node
+## CHAT-1: Implement Ollama Integration in Researcher Node
 
-[Type: Story] - Implement OpenAI Integration in Researcher Node
+[Type: Story] - Implement Ollama Integration in Researcher Node
 
 ### Summary
-Add support for OpenAI LLM in the Researcher node using `langchain_openai`, configuring API keys via environment variables.
+Add support for a local Ollama LLM in the Researcher node using `langgraph_ollama`, configuring the local endpoint via environment variables.
 
 #### As-a / I-want / So-what
-**As a** developer, **I want** to replace mock responses with real OpenAI calls, **So that** we can test end‑to‑end flow with actual LLM output.
+**As a** developer, **I want** to replace mock responses with local Ollama model calls, **So that** we can test end‑to‑end without incurring API costs.
 
 #### Parent Epic
 Epic 1: Add a Simple AI Chatbot
@@ -22,36 +22,37 @@ Epic 1: Add a Simple AI Chatbot
 5
 
 #### Description
-The current Researcher node uses mock responses. This ticket replaces the mock with real OpenAI calls by integrating `langchain_openai`. The implementation will:
-- Import and configure `OpenAI` from langchain.
-- Read `OPENAI_API_KEY` from environment variables.
-- Update the graph to use the new LLM provider.
+The current Researcher node uses mock responses. This ticket replaces the mock with local Ollama calls by integrating `langgraph_ollama`. The implementation will:
+- Import and configure the Ollama LLM via langgraph.
+- Read `OLLAMA_API_URL` (e.g. `http://localhost:11434`) from environment variables.
+- Update the graph to use the Ollama provider and make provider selection rely on `LLM_PROVIDER` env var (default `ollama`).
 
 #### Problem and Solution
-Problem: No real LLM integration, limiting end‑to‑end testing. 
-Solution: Replace mock with OpenAI calls via langchain.
+Problem: No local LLM integration, limiting offline/no-cost testing.  
+Solution: Replace mock with local Ollama calls via langgraph.
 
 #### Impact Analysis
-`src/agent/graph.py`, `src/agent/state.py` (if provider tracking needed).
+`src/agent/graph.py`, `src/agent/state.py` (provider tracking), `requirements.txt`.
 
 #### Desired Path
-1. Add `langchain_openai` to requirements.
-2. Update node implementation.
-3. Write unit tests for OpenAI integration.
+1. Add `langgraph_ollama` to requirements.  
+2. Update node implementation to call Ollama.  
+3. Add env var `OLLAMA_API_URL` to docs and `.env` examples.  
+4. Write unit tests mocking Ollama responses.
 
 #### Verification
-Run `pytest tests/test_graph.py` and ensure the Researcher node returns real responses.
+Run `pytest tests/test_graph.py` with the Ollama path and ensure the Researcher node returns model responses (mocked for CI).
 
 #### Acceptance Criteria
-- AC-1: The Researcher node uses `langchain_openai`.
-- AC-2: API key is read from `OPENAI_API_KEY` env var.
-- AC-3: Unit tests pass with mocked OpenAI responses.
+ - AC-1: The Researcher node uses `langgraph_ollama` when `LLM_PROVIDER=ollama`.  
+- AC-2: Endpoint is read from `OLLAMA_API_URL` env var.  
+- AC-3: Unit tests pass with mocked Ollama responses.
 
 #### Definition of Done (DoD)
-- Code follows Black formatting.
-- Code passes Ruff linting.
-- Unit tests added/updated and passing.
-- ADR created if architectural change is significant.
+- Code follows Black formatting.  
+- Code passes Ruff linting.  
+- Unit tests added/updated and passing.  
+- ADR updated to document Ollama choice.
 
 #### Reference
 [Epic 1](docs/milestone/milestone_1_plan.md#epic-1-add-a-simple-ai-chatbot)
@@ -73,17 +74,17 @@ Epic 1: Add a Simple AI Chatbot
 5
 
 #### Description
-Update the Writer node to call an Ollama endpoint using `langchain_ollama`. The graph should be configurable to use either OpenAI or Ollama based on environment variables.
+Update the Writer node to call an Ollama endpoint using `langgraph_ollama`. The graph should be configurable to use either OpenAI or Ollama based on environment variables.
 
 #### Problem and Solution
 Problem: Only OpenAI is supported, limiting local testing. 
-Solution: Integrate Ollama provider via langchain.
+Solution: Integrate Ollama provider via langgraph.
 
 #### Impact Analysis
 `src/agent/graph.py`, `src/agent/state.py` (provider config).
 
 #### Desired Path
-1. Add `langchain_ollama` to requirements.
+1. Add `langgraph_ollama` to requirements.
 2. Implement Ollama LLM class.
 3. Update graph configuration logic.
 4. Write tests for local LLM path.
@@ -208,8 +209,8 @@ Epic 1: Add a Simple AI Chatbot
 3
 
 #### Description
-Write `docs/adr/ai_chatbot_integration.md` explaining:
-- Choice of langchain providers.  
+- Write `docs/adr/ai_chatbot_integration.md` explaining:
+- Choice of langgraph providers.  
 - Environment variable configuration.  
 - Provider switching logic.  
 - Testing strategy.
